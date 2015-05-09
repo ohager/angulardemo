@@ -1,0 +1,66 @@
+.navbar-brand{
+  padding-top: 8px;
+}
+
+/* CARD */
+
+.fixed-height {
+    max-height: 480px;
+    overflow: auto;
+}
+
+.content-list-cards {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    position: relative;
+}
+
+.card-item {
+    border: solid 1px #DDDDDD;
+    background-color: #fff;
+}
+
+[class*="card-item"] > a {
+    position: relative;
+    display: block;
+    padding: 0.5rem;
+    color: #4c4c4c;
+}
+
+[class*="card-item"] > a > span {
+    display: block;
+    font-size: 0;
+}
+[class*="card-item"] > a > span > strong {
+    display: block;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+[class*="card-item"] > a > span > small {
+    display: inline-block;
+    vertical-align: middle;
+    width: 49.99%;
+    font-size: 0.8rem;
+}
+/* [class*="card-item"] > a > span > small > span{
+  display: inline-block;
+  vertical-align: middle;
+} */
+
+[class*="card-item"] > a:hover,
+[class*="card-item"] > a:active,
+[class*="card-item"] > a:focus {
+    cursor: pointer;
+    color: #fff;
+    background-color: #428bca;
+}
+
+
+.center-vertical {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
