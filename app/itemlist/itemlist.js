@@ -36,7 +36,7 @@ angular.module('myApp.itemlist', ['ngRoute'])
                 data.push(
                     {
                         id:Math.floor((Math.random() * itemCount)),
-                        timestamp: Date.now()
+                        timestamp: performance.now()
                     })
             }
 
