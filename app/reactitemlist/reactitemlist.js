@@ -1,16 +1,15 @@
 'use strict';
 
-angular.module('app.itemlist', ['ngRoute'])
+angular.module('app.reactitemlist', ['ngRoute', 'react'])
 
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/itemlist', {
-            templateUrl: 'itemlist/itemlist.html',
-            controller: 'ItemListController'
-        });
-    }])
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/reactitemlist', {
+    templateUrl: 'reactitemlist/reactitemlist.html',
+    controller: 'ReactItemListCtrl'
+  });
+}])
 
-    .controller('ItemListController', ['$scope', '$interval', function ($scope, $interval) {
-
+.controller('ReactItemListCtrl', ['$scope', '$interval', function($scope,$interval) {
 
         var Player = new function() {
             var handle = null;
@@ -80,4 +79,4 @@ angular.module('app.itemlist', ['ngRoute'])
         };
         shuffle();
 
-    }]);
+}]);

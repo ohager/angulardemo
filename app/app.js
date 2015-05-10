@@ -1,13 +1,17 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+var app = angular.module('app', [
   'ngRoute',
+  'react',
   'ui.bootstrap',
-  'myApp.itemlist',
-  'myApp.view2',
-  'myApp.version'
+  'app.itemlist',
+  'app.reactitemlist',
+  'app.version'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/itemlist'});
 }]);
+
+
+
