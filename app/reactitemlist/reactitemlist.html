@@ -1,45 +1,6 @@
 <div class="container">
     <div class="well">
-        <div class="row">
-            <div class="col-lg-1 center-vertical">
-                <img src="./images/angularjs.png" height="48"/>
-            </div>
-            <div class="col-lg-3 center-vertical">
-                <div class="row">
-                    <label>No. Items</label>
-                </div>
-                <div class="row">
-                    <input type="number" ng-model="items.count"/>
-                </div>
-            </div>
-            <div class="col-lg-3 center-vertical">
-                <div class="row">
-                    <label>Interval [ms]</label>
-                </div>
-                <div class="row">
-                    <input type="number" ng-model="control.interval"/>
-                </div>
-            </div>
-
-            <div class="col-lg-2 center-vertical">
-                <button type="button" ng-click="togglePause()" class="btn btn-success"><span
-                        ng-class="{'glyphicon glyphicon-play' : control.isPaused, 'glyphicon glyphicon-pause' : !control.isPaused}"
-                        aria-hidden="true"></span>&nbsp;{{control.isPaused?'Play':'Pause'}}
-                </button>
-            </div>
-
-            <div class="col-lg-2 center-vertical">
-                <div class="row">
-                    <label>Frame [ms]: {{frameMs.toFixed(2)}}</label>
-                </div>
-            </div>
-        </div>
-        <hr/>
-        <div class="panel panel-default">
-            <div class="panel-body fixed-height">
-                <react-component name="ItemList" props="control" type="reference"/>
-            </div>
-        </div>
+        <react-component name="ItemList"/>
     </div>
 </div>
 
