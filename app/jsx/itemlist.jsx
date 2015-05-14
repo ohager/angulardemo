@@ -1,5 +1,4 @@
 "use strict";
-
 var Player = new function() {
     var handle = null;
 
@@ -14,6 +13,9 @@ var Player = new function() {
 
 var ControlPanel = React.createClass({
 
+    _frameCount : 1,
+    _frameMsSum : 0,
+
     propTypes : {
         frameMs : React.PropTypes.number.isRequired,
         onChange : React.PropTypes.func.isRequired
@@ -23,16 +25,30 @@ var ControlPanel = React.createClass({
         return {isPaused : true, interval: 500, itemCount:100 }
     },
 
+    componentWillReceiveProps(newprops){
+        ++this._frameCount;
+        this._frameMsSum+=newprops.frameMs;
+    },
+
+    resetFrameStats : function(){
+        this._frameCount = 1;
+        this._frameMsSum = 0;
+    },
+
     changeItemCount : function(event){
         this.state.itemCount = +event.target.value;
+        this.resetFrameStats();
         this.propagateChanges();
         this.forceUpdate();
+
     },
 
     changeInterval : function(event){
         this.state.interval = +event.target.value;
+        this.resetFrameStats();
         this.propagateChanges();
         this.forceUpdate();
+
     },
 
     togglePause : function(){
@@ -41,9 +57,8 @@ var ControlPanel = React.createClass({
         this.forceUpdate();
     },
 
-
-
     propagateChanges : function(){
+
         this.props.onChange(this.state);
     },
 
@@ -81,6 +96,7 @@ var ControlPanel = React.createClass({
                 <div className="col-lg-2 center-vertical">
                     <div className="row">
                         <label>Frame [ms]: {this.props.frameMs.toFixed(2)}</label>
+                        <label>&empty; Frame [ms]: {(this._frameMsSum/this._frameCount).toFixed(0)}</label>
                     </div>
                 </div>
                 <hr/>
@@ -114,6 +130,7 @@ var Item = React.createClass({
         )
     }
 });
+
 
 
 var ItemList = React.createClass({

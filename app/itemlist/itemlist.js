@@ -25,12 +25,18 @@ angular.module('app.itemlist', ['ngRoute'])
         };
 
         var lastTime = 0;
+        var frameCount = 1;
+        var frameMsSum = 0;
+
 
         function reseed(itemCount) {
             var data = [];
 
             var now = performance.now();
             $scope.frameMs = now - lastTime;
+            frameMsSum += $scope.frameMs;
+            $scope.frameMsAvg = frameMsSum/(frameCount++);
+
             lastTime = now;
             for (var i = 0; i < itemCount; ++i) {
                 data.push(
@@ -78,6 +84,15 @@ angular.module('app.itemlist', ['ngRoute'])
             count : 100,
             rows : []
         };
+
+        function resetFrameStats(){
+            frameCount = 1;
+            frameMsSum = 0;
+        }
+
+        $scope.$watch('control.interval', resetFrameStats);
+        $scope.$watch('items.count', resetFrameStats);
+
         shuffle();
 
     }]);
