@@ -147,10 +147,6 @@ var ItemList = React.createClass({
 
     },
 
-    jsonEqual: function(a,b){
-      return JSON.stringify(a) === JSON.stringify(b);
-    },
-
     onControlChanged : function(control){
 
         Player.stop();

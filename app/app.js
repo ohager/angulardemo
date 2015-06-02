@@ -7,6 +7,7 @@ var app = angular.module('app', [
   'ui.bootstrap',
   'app.itemlist',
   'app.reactitemlist',
+  'app.componentization',
   'app.version'
 ]).
 config(['$routeProvider', function($routeProvider) {
